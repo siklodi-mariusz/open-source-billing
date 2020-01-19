@@ -12,6 +12,7 @@ Layout/LineLength:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'Guardfile'
 
 Metrics/MethodLength:
   Max: 30

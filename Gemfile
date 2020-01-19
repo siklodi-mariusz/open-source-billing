@@ -43,6 +43,8 @@ group :development do
   gem 'capistrano', '3.10.2'
   gem 'capistrano-rails', '1.1.3'
   gem "letter_opener", '1.4.1'
+  gem 'guard-rspec', '~> 4.7', '>= 4.7.3', require: false
+  gem 'spring-commands-rspec', require: false
 end
 gem 'capistrano-rvm', '0.1.2'
 gem 'browser', '2.1.0'
