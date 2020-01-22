@@ -1,0 +1,8 @@
+# https://docker-sync.readthedocs.io/en/latest/getting-started/configuration.html#references
+version: "2"
+options:
+  verbose: false
+syncs:
+  open-source-billing-sync:
+    sync_strategy: 'native_osx'
+    src: .

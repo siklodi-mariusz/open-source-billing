@@ -1,7 +1,17 @@
-build:
+DOCKER_SYNC_CHECK := $(shell gem list -i docker-sync)
+check_docker_sync:
+	@if [ ${DOCKER_SYNC_CHECK} == true ]; then \
+					echo "docker-sync already installed"; \
+	else \
+					gem install docker-sync; \
+	fi
+
+build: check_docker_sync
 	docker-compose build ${args}
 
-up:
+up: check_docker_sync
+	docker-sync stop
+	docker-sync start
 	docker-compose up ${args}
 
 bash:
