@@ -39,14 +39,10 @@
 //= require calendar.js
 //= require logs.js
 //= require clients.js.coffee
-//= require client_additional_contacts.js.coffee
-//= require client_contacts.js.coffee
 //= require accounts.js.coffee
 //= require dashboard.js.coffee
-//= require invoice_line_items.js.coffee
 //= require items.js.coffee
 //= require activities.js.coffee
-//= require notifications.js.coffee
 //= require jqamp-ui-spinner.min.js
 //= require jquery.qtip.min.js
 //= require jwerty.js
