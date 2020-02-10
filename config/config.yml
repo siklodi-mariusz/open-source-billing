@@ -1,0 +1,46 @@
+defaults: &defaults
+  app_host: <%= ENV.fetch('APP_HOST_NAME', 'localhost') %> # e.g. osb.mydomain.com
+  app_protocol: <%= ENV.fetch('APP_PROTOCOL', 'http' %>
+  activemerchant_billing_mode: <%= ENV.fetch('ACTIVE_MERCHANT_BILLING_MODE', 'test') %>
+  demo_mode: <%= ENV.fetch('DEMO_MODE', false).to_s == 'true' %>
+  wkhtmltopdf_path: <%= ENV.fetch('WKHTMLTOPDF_PATH', '/usr/local/bin/wkhtmltopdf' %>
+  encryption_key: <%= ENV.fetch('ENCRYPTION_KEY', '22fb9eda515c8ada352f426337bb74804d5d59e388a9b7d231bf64d227920ccf3e1125f71d9260adce444cc3831f8255c921e1afab602f714b19f1d868697f27') %>
+
+paypal_defaults: &paypal_defaults
+  enabled: <%= ENV.fetch('PAYPAL_ENABLED', false).to_s == 'true' %>
+  url: <%= ENV.fetch('PAYPAL_URL', 'https://www.sandbox.paypal.com/cgi-bin/webscr?' %>
+  business: <%= ENV['PAYPAL_BUSINESS']
+
+smtp_defaults: &smtp_defaults
+  address: <%= ENV.fetch('MAILER_ADDRESS', 'smtp.gmail.com' %>
+  port: <%= ENV.fetch('MAILER_PORT', 587) %>
+  authentication: <%= ENV.fetch('MAILER_AUTHENTICATION', :plain).to_sym %>
+  enable_starttls_auto: <%= ENV.fetch('MAILER_STARTTLS_ENABLED', true).to_s == 'true' %>
+  user_name: <%= ENV['MAILER_USERNAME'] %>
+  password: <%= ENV['MAILER_PASSWORD'] %>
+
+quickbooks_defaults: &quickbooks_defaults
+  consumer_key: <%= ENV['QUICKBOOKS_CLIENT_ID'] %>
+  consumer_secret: <%= ENV['QUICKBOOKS_CLIENT_SECRET'] %>
+
+development:
+  <<: *defaults
+  paypal:
+    <<: *paypal_defaults
+
+  smtp_setting:
+    <<: *smtp_defaults
+
+  quickbooks:
+    <<: *quickbooks_defaults
+
+production:
+  <<: *defaults
+  paypal:
+    <<: *paypal_defaults
+
+  smtp_setting:
+    <<: *smtp_defaults
+
+  quickbooks:
+    <<: *quickbooks_defaults
