@@ -1,5 +1,4 @@
-workers 2
-threads 4, 16
+threads 1, 8
 port 9191
 
 app_dir = File.expand_path("../..", __FILE__)
