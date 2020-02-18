@@ -1,7 +1,6 @@
 module OSB
   module CONFIG
-    require 'yaml'
-    APP_CONFIG = HashWithIndifferentAccess.new(YAML.load_file(Rails.root.join('config','config.yml'))[Rails.env])
+    APP_CONFIG = Rails.application.config_for(:config).with_indifferent_access
     APP_HOST ||= APP_CONFIG[:app_host]
     TLD_LENGTH ||= APP_CONFIG[:tld_length]
     APP_PROTOCOL ||= APP_CONFIG[:app_protocol]
